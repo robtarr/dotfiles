@@ -1,0 +1,73 @@
+#[GENERAL]
+alias a='cat ~/.aliases'
+alias c=clear
+alias h=history
+alias l='ls -ltr'
+alias la="ls -Gla"
+alias whois="whois -h whois-servers.net"
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
+#[IP]
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ipw="ipconfig getifaddr en1"
+alias ipe="ipconfig getifaddr en0"
+
+#[Apache]
+alias apache="sudo apachectl -k restart"
+
+#[GIT]
+alias git=/usr/local/git/bin/git
+alias g='cat ~/.gitconfig'
+alias gp='cat ~/bin/dotfiles/bash/aliases'
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gl='git pull --rebase'
+alias gk='gitk --all&'
+alias gx='gitx --all'
+alias gpb='git publish-branch'
+alias got='git '
+alias get='git '
+alias undopush="git push -f origin HEAD^:master"
+
+#[RoR]
+alias ror='cd ~/dev/_rails'
+alias cof='cd ~/dev/_coffee'
+alias sr='script/rails'
+alias sc='script/rails console'
+alias ss='script/rails server'
+alias rs='rspec'
+alias cu='cucumber -r features'
+alias cuw='cucumber --profile wip'
+alias ropen='open http://localhost:3000'
+alias jopen='open http://localhost:3000/jasmine'
+
+#[Heroku]
+alias hp='git push heroku master'
+alias hopen='heroku open'
+
+#[Cheats]
+alias vcs='cat -b ~/Documents/cheatsheets/vim.txt'
+alias ccs='cat -b ~/Documents/cheatsheets/cucumber.txt'
+alias hcs='cat -b ~/Documents/cheatsheets/heroku.txt'
+alias ocs='cat -b ~/Documents/cheatsheets/octopress.txt'
+
+#[JavaScript]
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+
+#[MYSQL]
+alias mysql=/usr/local/mysql/bin/mysql
+alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+
+#[Cleanup]
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Shortcuts
+alias d="cd ~/Documents/Dropbox"
+alias p="cd ~/projects"
+alias u="cd ~"
