@@ -73,10 +73,8 @@ alias hopen='heroku open'
 #[heroku-end]
 
 #[cheats-start]
-alias vcs='cat -b ~/Documents/cheatsheets/vim.txt'
 alias ccs='cat -b ~/Documents/cheatsheets/cucumber.txt'
 alias hcs='cat -b ~/Documents/cheatsheets/heroku.txt'
-alias ocs='cat -b ~/Documents/cheatsheets/octopress.txt'
 #[cheats-end]
 
 #[javascript-start]
@@ -96,5 +94,6 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 #[shortcuts-start]
 alias d="cd ~/Documents/Dropbox"
 alias p="cd ~/projects"
+alias gh="cd ~/git-repos"
 alias u="cd ~"
 #[shortcuts-end]
