@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/opt/subversion/bin:~/bin/bin:~/bin:~/bin/jsl-0.3.0-mac:$PATH
+export PATH=/usr/local/bin:/opt/subversion/bin:~/bin/bin:~/bin:~/bin/jsl-0.3.0-mac:~/bin/git-tf:/usr/bin/java:/usr/local/git:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
