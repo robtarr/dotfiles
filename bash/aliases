@@ -1,4 +1,19 @@
-#[GENERAL]
+#[what-start]
+# general
+# ip
+# apache
+# git
+# ror
+# heroku
+# cheats
+# javascript
+# mysql
+# cleanup
+# shortcuts
+#[what-end]
+
+
+#[general-start]
 alias a='cat ~/.aliases'
 alias c=clear
 alias h=history
@@ -7,16 +22,19 @@ alias la="ls -Gla"
 alias whois="whois -h whois-servers.net"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+#[general-end]
 
-#[IP]
+#[ip-start]
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ipw="ipconfig getifaddr en1"
 alias ipe="ipconfig getifaddr en0"
+#[ip-end]
 
-#[Apache]
+#[apache-start]
 alias apache="sudo apachectl -k restart"
+#[apache-end]
 
-#[GIT]
+#[git-start]
 alias git=/usr/local/git/bin/git
 alias g='cat ~/.gitconfig'
 alias gp='cat ~/bin/dotfiles/bash/aliases'
@@ -24,7 +42,7 @@ alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
 alias gc='git commit'
-alias gd='git diff'
+alias gd='git difftool'
 alias go='git checkout '
 alias gl='git pull --rebase'
 alias gk='gitk --all&'
@@ -32,9 +50,11 @@ alias gx='gitx --all'
 alias gpb='git publish-branch'
 alias got='git '
 alias get='git '
+alias glog='git log --format='\''%Cgreen%h%Creset %C(cyan)%an%Creset - %s - %C(yellow)%ar'\'' --graph'
 alias undopush="git push -f origin HEAD^:master"
+#[git-end]
 
-#[RoR]
+#[ror-start]
 alias ror='cd ~/dev/_rails'
 alias cof='cd ~/dev/_coffee'
 alias sr='script/rails'
@@ -45,29 +65,36 @@ alias cu='cucumber -r features'
 alias cuw='cucumber --profile wip'
 alias ropen='open http://localhost:3000'
 alias jopen='open http://localhost:3000/jasmine'
+#[ror-end]
 
-#[Heroku]
+#[heroku-start]
 alias hp='git push heroku master'
 alias hopen='heroku open'
+#[heroku-end]
 
-#[Cheats]
+#[cheats-start]
 alias vcs='cat -b ~/Documents/cheatsheets/vim.txt'
 alias ccs='cat -b ~/Documents/cheatsheets/cucumber.txt'
 alias hcs='cat -b ~/Documents/cheatsheets/heroku.txt'
 alias ocs='cat -b ~/Documents/cheatsheets/octopress.txt'
+#[cheats-end]
 
-#[JavaScript]
+#[javascript-start]
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+#[javascript-end]
 
-#[MYSQL]
+#[mysql-start]
 alias mysql=/usr/local/mysql/bin/mysql
 alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+#[mysql-end]
 
-#[Cleanup]
+#[cleanup-start]
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+#[cleanup-end]
 
-# Shortcuts
+#[shortcuts-start]
 alias d="cd ~/Documents/Dropbox"
 alias p="cd ~/projects"
 alias u="cd ~"
+#[shortcuts-end]
