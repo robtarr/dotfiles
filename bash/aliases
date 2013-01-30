@@ -3,6 +3,7 @@
 # ip
 # apache
 # git
+# images
 # ror
 # heroku
 # cheats
@@ -37,22 +38,25 @@ alias apache="sudo apachectl -k restart"
 #[git-start]
 alias git=/usr/local/git/bin/git
 alias g='cat ~/.gitconfig'
-alias gp='cat ~/bin/dotfiles/bash/aliases'
 alias gs='git status '
 alias ga='git add '
+alias gap='git add -p .'
 alias gb='git branch '
 alias gc='git commit'
+alias gca='git commit --amend -C HEAD'
 alias gd='git difftool'
 alias go='git checkout '
 alias gl='git pull --rebase'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gpb='git publish-branch'
-alias got='git '
-alias get='git '
 alias glog='git log --format='\''%Cgreen%h%Creset %C(cyan)%an%Creset - %s - %C(yellow)%ar'\'' --graph'
 alias undopush="git push -f origin HEAD^:master"
-#[git-end]
+#[git-end]hg
+
+#[images-start]
+alias psd="open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app"
+#[images-end]
 
 #[ror-start]
 alias ror='cd ~/dev/_rails'
@@ -96,4 +100,5 @@ alias d="cd ~/Documents/Dropbox"
 alias p="cd ~/projects"
 alias gh="cd ~/git-repos"
 alias u="cd ~"
+alias dot="subl ~/git-repos/dotfiles"
 #[shortcuts-end]
