@@ -1,4 +1,7 @@
-export PATH=/usr/local/share/npm/bin:/usr/local/bin:/opt/subversion/bin:~/bin/bin:~/bin:~/bin/jsl-0.3.0-mac:/usr/local/git-tf:/usr/bin/java:/usr/local/git:$PATH
+export PATH=/usr/local/share/npm/bin:/usr/local/bin:/opt/subversion/bin:~/bin/bin:~/bin:~/bin/jsl-0.3.0-mac:/usr/local/git-tf:/usr/bin/java:/usr/local/git:~/git-repos/dotfiles/osx:$PATH
+
+# Set iTerm Window Title
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
