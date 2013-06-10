@@ -1,4 +1,4 @@
-#[what-start]
+#[list-start]
 # general
 # ip
 # apache
@@ -11,8 +11,11 @@
 # mysql
 # cleanup
 # shortcuts
-#[what-end]
+#[list-end]
 
+#[grunt-start]
+alias gw="grunt; grunt watch"
+#[grunt-end]
 
 #[general-start]
 alias a='cat ~/.aliases'
@@ -23,6 +26,7 @@ alias la="ls -Gla"
 alias whois="whois -h whois-servers.net"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+alias rspec="rspec"
 #[general-end]
 
 #[ip-start]
@@ -45,14 +49,14 @@ alias gb='git branch '
 alias gc='git commit'
 alias gca='git commit --amend -C HEAD'
 alias gd='git difftool'
-alias go='git checkout '
+# alias go='git checkout '
 alias gl='git pull --rebase'
 alias gk='gitk --all&'
 alias gx='gitx --all'
-alias gpb='git publish-branch'
+alias gup='git fetch origin && git rebase origin/master'
 alias glog='git log --format='\''%Cgreen%h%Creset %C(cyan)%an%Creset - %s - %C(yellow)%ar'\'' --graph'
 alias undopush="git push -f origin HEAD^:master"
-#[git-end]hg
+#[git-end]
 
 #[images-start]
 alias psd="open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app"
@@ -73,6 +77,7 @@ alias jopen='open http://localhost:3000/jasmine'
 
 #[heroku-start]
 alias hp='git push heroku master'
+alias hd='git push deploy master'
 alias hopen='heroku open'
 #[heroku-end]
 

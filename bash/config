@@ -14,7 +14,7 @@ function init {
   local RED="\033[0;31m"
   local NC="\033[0m"
  
-  if [ ! $# == 1 ]; then
+  if [ ! $# = 1 ]; then
     echo -e "${RED}Please specify a project name, or action (update, revert).${NC}"
     echo -e "Usage: init project-name / action\n"
   elif [ "$1" = "update" ]; then
@@ -104,10 +104,10 @@ else
 fi
 
 # Change the default shell prompt
-function myPrompt {
-  BLACK="\[\033[0;38m\]"
-  RED="\[\033[0;31m\]"
-
-  PS1="\u@\h:\w$RED\$(parse_git_branch)$BLACK\n⇒ "
-}
-myPrompt
+#function myPrompt {
+#  BLACK="\[\033[0;38m\]"
+#  RED="\[\033[0;31m\]"
+#
+#  PS1="\u@\h:\w$RED\$(parse_git_branch)$BLACK\n⇒ "
+#}
+#myPrompt
