@@ -40,7 +40,8 @@ alias apache="sudo apachectl -k restart"
 #[apache-end]
 
 #[git-start]
-alias git=/usr/local/git/bin/git
+alias git=hub
+# alias git=/usr/local/git/bin/git
 alias g='cat ~/.gitconfig'
 alias gs='git status '
 alias ga='git add '

@@ -37,6 +37,7 @@ setopt complete_aliases
 
 source $ZSH/oh-my-zsh.sh
 source ~/git-repos/dotfiles/bashrc
+source ~/git-repos/dotfiles/zsh/lib/*
 
 # Credits to npm's. Awesome completion utility.
 #
