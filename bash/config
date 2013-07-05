@@ -10,10 +10,14 @@ function vhost {
   sudo ~/git-repos/dotfiles/osx/mamp_vh.sh $1
 }
 
+function bst {
+  java -jar ~/bin/BrowserStackTunnel.jar by9isSgDxFWYh2qs1X6g localhost,$1,0
+}
+
 function init {
   local RED="\033[0;31m"
   local NC="\033[0m"
- 
+
   if [ ! $# = 1 ]; then
     echo -e "${RED}Please specify a project name, or action (update, revert).${NC}"
     echo -e "Usage: init project-name / action\n"
