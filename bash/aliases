@@ -78,7 +78,7 @@ alias jopen='open http://localhost:3000/jasmine'
 
 #[heroku-start]
 alias hp='git push heroku master'
-alias hd='git push deploy master'
+alias hd='git push heroku deploy:master'
 alias hopen='heroku open'
 #[heroku-end]
 
