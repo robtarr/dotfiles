@@ -14,6 +14,16 @@ function bst {
   java -jar ~/bin/BrowserStackTunnel.jar by9isSgDxFWYh2qs1X6g localhost,$1,0
 }
 
+# Install a grunt plugin and save to devDependencies
+function gi() {
+  npm install --save-dev grunt-"$@"
+}
+
+# Install a grunt-contrib plugin and save to devDependencies
+function gci() {
+  npm install --save-dev grunt-contrib-"$@"
+}
+
 function init {
   local RED="\033[0;31m"
   local NC="\033[0m"
