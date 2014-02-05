@@ -113,4 +113,5 @@ alias p="cd ~/projects"
 alias gh="cd ~/git-repos"
 alias u="cd ~"
 alias dot="subl ~/git-repos/dotfiles"
+alias bi="bundle install && say 'bundler has installed all the things'"
 #[shortcuts-end]
