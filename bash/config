@@ -3,7 +3,7 @@ function hg {
 }
 
 function al {
-  awk "/#\[$1-start\]/,/#\[$1-end\]/ { print }" ~/git-repos/dotfiles/bash/aliases
+  awk "/#\[$1-start\]/,/#\[$1-end\]/ { print }" ~/my-projects/dotfiles/bash/aliases
 }
 
 function vhost {

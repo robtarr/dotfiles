@@ -1,3 +1,3 @@
-. ~/git-repos/dotfiles/bash/env
-. ~/git-repos/dotfiles/bash/config
-. ~/git-repos/dotfiles/bash/aliases
+. ~/my-projects/dotfiles/bash/env
+. ~/my-projects/dotfiles/bash/config
+. ~/my-projects/dotfiles/bash/aliases

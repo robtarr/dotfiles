@@ -16,6 +16,7 @@
 
 #[grunt-start]
 alias gw="grunt; grunt watch"
+alias ggg="grunt; grunt server"
 #[grunt-end]
 
 #[general-start]
@@ -42,7 +43,7 @@ alias apache="sudo apachectl -k restart"
 #[apache-end]
 
 #[git-start]
-alias git=hub
+# eval "$(hub alias -s)"
 # alias git=/usr/local/git/bin/git
 alias g='cat ~/.gitconfig'
 alias gs='git status '
@@ -52,7 +53,7 @@ alias gb='git branch '
 alias gc='git commit'
 alias gca='git commit --amend -C HEAD'
 alias gd='git difftool'
-# alias go='git checkout '
+alias go='git checkout '
 alias gl='git pull --rebase'
 alias gk='gitk --all&'
 alias gx='gitx --all'
@@ -110,8 +111,9 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 #[shortcuts-start]
 alias d="cd ~/Documents/Dropbox"
 alias p="cd ~/projects"
+alias my="cd ~/my-projects"
 alias gh="cd ~/git-repos"
 alias u="cd ~"
-alias dot="subl ~/git-repos/dotfiles"
+alias dot="subl ~/my-projects/dotfiles"
 alias bi="bundle install && say 'bundler has installed all the things'"
 #[shortcuts-end]
