@@ -1,0 +1,7 @@
+.apm
+storage
+compile-cache
+packages
+dev
+.npm
+.node-gyp

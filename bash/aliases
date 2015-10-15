@@ -19,6 +19,10 @@ alias gw="grunt; grunt watch"
 alias ggg="grunt; grunt server"
 #[grunt-end]
 
+#[gulp-start]
+alias glp="gulp --fatal=off"
+#[gulp-end]
+
 #[general-start]
 alias a='cat ~/.aliases'
 alias c=clear
