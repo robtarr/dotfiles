@@ -101,6 +101,7 @@ alias hcs='cat -b ~/Documents/cheatsheets/heroku.txt'
 
 #[javascript-start]
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+alias ns='npm start'
 #[javascript-end]
 
 #[mysql-start]
@@ -118,7 +119,6 @@ alias d="cd ~/Documents/Dropbox"
 alias p="cd ~/projects"
 alias my="cd ~/my-projects"
 alias gh="cd ~/git-repos"
-alias u="cd ~"
-alias dot="subl ~/my-projects/dotfiles"
+alias dot="atom ~/my-projects/dotfiles"
 alias bi="bundle install && say 'bundler has installed all the things'"
 #[shortcuts-end]

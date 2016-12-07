@@ -118,10 +118,7 @@ else
 fi
 
 # Change the default shell prompt
-#function myPrompt {
-#  BLACK="\[\033[0;38m\]"
-#  RED="\[\033[0;31m\]"
-#
-#  PS1="\u@\h:\w$RED\$(parse_git_branch)$BLACK\n⇒ "
-#}
-#myPrompt
+function myPrompt {
+  PS1="%{$fg[magenta]%}%n%{$reset_color%} - %{$fg[yellow]%}%m%{$reset_color%}[%{$fg_bold[green]%}%d%{$reset_color%}] ⚡ "
+}
+myPrompt
