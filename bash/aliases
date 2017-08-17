@@ -14,11 +14,6 @@
 # shortcuts
 #[list-end]
 
-#[grunt-start]
-alias gw="grunt; grunt watch"
-alias ggg="grunt; grunt server"
-#[grunt-end]
-
 #[gulp-start]
 alias glp="gulp --fatal=off"
 #[gulp-end]
@@ -34,6 +29,7 @@ alias whois="whois -h whois-servers.net"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias rspec="rspec"
 alias rake='noglob rake'
+alias hg="history | grep --color=auto "
 #[general-end]
 
 #[ip-start]
@@ -64,6 +60,7 @@ alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gup='git fetch origin && git rebase origin/master'
 alias glog='git log --format='\''%Cgreen%h%Creset %C(cyan)%an%Creset - %s - %C(yellow)%ar'\'' --graph'
+alias ggpush='git push origin $(git_current_branch)'
 alias undopush="git push -f origin HEAD^:master"
 #[git-end]
 
@@ -101,7 +98,10 @@ alias hcs='cat -b ~/Documents/cheatsheets/heroku.txt'
 
 #[javascript-start]
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+alias ys='yarn start'
+alias yr='PATH=$(npm bin):$PATH'
 alias ns='npm start'
+alias nr='PATH=$(npm bin):$PATH'
 #[javascript-end]
 
 #[mysql-start]

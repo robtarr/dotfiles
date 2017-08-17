@@ -1,7 +1,3 @@
-function hg {
-  history | grep --color=auto $1
-}
-
 function al {
   awk "/#\[$1-start\]/,/#\[$1-end\]/ { print }" ~/my-projects/dotfiles/bash/aliases
 }
@@ -118,7 +114,7 @@ else
 fi
 
 # Change the default shell prompt
-function myPrompt {
-  PS1="%{$fg[magenta]%}%n%{$reset_color%} - %{$fg[yellow]%}%m%{$reset_color%}[%{$fg_bold[green]%}%d%{$reset_color%}] ⚡ "
-}
-myPrompt
+# function myPrompt {
+#   PS1="%{$fg[magenta]%}%n%{$reset_color%} - %{$fg[yellow]%}%m%{$reset_color%}[%{$fg_bold[green]%}%d%{$reset_color%}] ⚡ "
+# }
+# myPrompt

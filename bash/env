@@ -5,7 +5,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:$HOME/.rvm/bin"
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
 # Set Git Editor
-export GIT_EDITOR='subl -w'
+export GIT_EDITOR=vim
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 

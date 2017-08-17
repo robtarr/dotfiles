@@ -16,3 +16,19 @@
 # This file uses CoffeeScript Object Notation (CSON).
 # If you are unfamiliar with CSON, you can read more about it here:
 # https://github.com/bevry/cson#what-is-cson
+
+
+'.source.js':
+  'My Name':
+    'prefix': 'rt'
+    'body': 'Rob Tarr $1'
+
+  'Rewire':
+    'prefix': 'rewire'
+    'body': '$1.__Rewire__(\'$2\', {\n
+      $3\n
+});'
+
+  'Rewire - Import':
+    'prefix': 'rewirei'
+    'body': 'import { __RewireAPI__ as $1RewireAPI} from \'$2\';'

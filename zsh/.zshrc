@@ -23,11 +23,17 @@ if [ -f ~/.bash_profile ]; then
   source ~/.bash_profile
 fi
 
+# precmd() {
+#   gitStatus="$(git symbolic-ref --short -q HEAD 2> /dev/null)"
+#   NEWLINE=$'\n'
+#
+#   PROMPT="%~ %{$fg[yellow]%}${gitStatus}${NEWLINE}%{$fg[magenta]%}❯ %{$reset_color%}"
+# }
 precmd() {
-  gitStatus="$(git symbolic-ref --short -q HEAD 2> /dev/null)"
+  source ~/my-projects/dotfiles/zsh/lib/zsh-git-prompt/zshrc.sh
   NEWLINE=$'\n'
 
-  PROMPT="%~ %{$fg[yellow]%}${gitStatus}${NEWLINE}%{$fg[magenta]%}❯ %{$reset_color%}"
+  PROMPT='%~%b$(git_super_status)${NEWLINE}%{$fg[green]%}❯ %{$reset_color%}'
 }
 
 export EDITOR=atom
@@ -43,3 +49,8 @@ bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+source ~/my-projects/dotfiles/zsh/lib/zsh-git-prompt/zshrc.sh
+# PROMPT='%B%m%~%b$ git_super_status $'\n'%{$fg[magenta]%}??❯ %{$reset_color%}'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
