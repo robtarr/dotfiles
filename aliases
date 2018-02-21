@@ -30,6 +30,7 @@ alias ohcrap='git add -A .; git commit --amend -C HEAD; git push -f'
 alias ns='npm start'
 alias nt='npm test'
 alias nr='npm run'
+alias chnode='node ~/my-projects/dotfiles/changeNode.js'
 
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"

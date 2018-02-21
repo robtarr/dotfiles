@@ -1,0 +1,28 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "JS Helpers for my dotfiles",
+  "main": "selectNode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robtarr/dotfiles.git"
+  },
+  "author": "Rob Tarr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robtarr/dotfiles/issues"
+  },
+  "homepage": "https://github.com/robtarr/dotfiles#readme",
+  "engines": {
+    "node": ">=8.13.1"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "semver": "^5.5.0",
+    "semver-regex": "^1.0.0",
+    "shelljs": "^0.8.1"
+  }
+}
