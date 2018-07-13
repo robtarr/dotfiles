@@ -24,5 +24,8 @@
     "semver": "^5.5.0",
     "semver-regex": "^1.0.0",
     "shelljs": "^0.8.1"
+  },
+  "bin": {
+    "nv": "./nv.js"
   }
 }

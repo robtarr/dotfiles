@@ -13,6 +13,7 @@ source ~/my-projects/dotfiles/zsh/plugins/zsh-abbrev-alias/abbrev-alias.plugin.z
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 source ~/my-projects/dotfiles/aliases
+source $HOME/.cargo/env
 
 export PYTHONPATH="$(brew --prefix)/lib/python2.7/site-packages"
 
