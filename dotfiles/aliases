@@ -1,0 +1,44 @@
+function git_current_branch() {
+  ref=$(git symbolic-ref HEAD)
+  echo "${ref#refs/heads/}"
+}
+
+alias la="ls -Glha"
+alias hg="history -10000 -1 | grep --color=auto "
+alias h="history -10000 -1"
+
+# git
+abbrev-alias gs='git status'
+abbrev-alias ga='git add -A'
+abbrev-alias gap='git add -p .'
+abbrev-alias gb='git branch'
+abbrev-alias gc='git commit'
+abbrev-alias gr='git rebase'
+abbrev-alias grm='git rebase main'
+abbrev-alias grc='git rebase --continue'
+abbrev-alias gca='git commit --amend -C HEAD'
+abbrev-alias gd='git difftool'
+abbrev-alias go='git checkout'
+abbrev-alias gp='git pull --rebase'
+abbrev-alias gpf='git push --force-with-lease'
+abbrev-alias gup='git fetch origin; git rebase origin/master'
+abbrev-alias ggpush='git push -u origin $(git_current_branch)'
+abbrev-alias undopush="git push -f origin HEAD^:master"
+abbrev-alias glog='git log --format='\''%Cgreen%h%Creset %C(cyan)%an%Creset - %s - %C(yellow)%ar'\'' --graph'
+
+alias removemerged='git branch --merged | egrep -v "(^\*|main|master|dev)" | xargs git branch -d'
+alias ohcrap='git add -A .; git commit --amend -C HEAD; git push -f'
+
+alias nv='nvm use'
+alias ns='npm start'
+alias nt='npm test'
+alias nr='npm run'
+
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+alias p="cd ~/projects"
+alias my="cd ~/my-projects"
+alias dot="code ~/dotfiles"
+
+alias pyserver="python -m SimpleHTTPServer"
