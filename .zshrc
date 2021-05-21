@@ -8,19 +8,15 @@ prompt pure
 autoload -Uz colors && colors
 
 # Plugins
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/my-projects/dotfiles/zsh/plugins/zsh-abbrev-alias/abbrev-alias.plugin.zsh
-source ~/my-projects/dotfiles/aliases
-source ~/my-projects/dotfiles/client
-source $HOME/.cargo/env
-
-export PYTHONPATH="$(brew --prefix)/lib/python2.7/site-packages"
+source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/dotfiles/zsh/plugins/zsh-abbrev-alias/abbrev-alias.plugin.zsh
+source ~/dotfiles/aliases
 
 #http://zsh.sourceforge.net/Doc/Release/Options.html
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=1000
-setopt SHARE_HISTORY
+# HISTFILE=~/.zsh_history
+# HISTSIZE=10000
+# SAVEHIST=1000
+# setopt SHARE_HISTORY
 # setopt HIST_SAVE_NO_DUPS
 # setopt HIST_IGNORE_DUPS
 # setopt HIST_IGNORE_ALL_DUPS
@@ -30,11 +26,6 @@ setopt SHARE_HISTORY
 
 export PATH="$HOME/.bin:$PATH"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Added by NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# $(nvm use node) 2>/dev/null
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

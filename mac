@@ -1,0 +1,83 @@
+#!/bin/bash
+
+echo "Congrats on your new Mac! Let's get you setup, Rob"
+
+echo "***********************"
+echo "*   Installing Brew   *"
+echo "***********************"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "**************************"
+echo "*   Installing Formula   *"
+echo "**************************"
+
+brew install \
+  caddy \
+  git \
+  git-extras \
+  git-secrets \
+  imagemagick \
+  jq \
+  nvm \
+  shellcheck \
+  vim \
+  pure
+
+echo "***************************"
+echo "*   Installing Heroku CLI *"
+echo "**************************"
+brew tap heroku/brew && brew install heroku
+
+echo "************************"
+echo "*   Installing Casks   *"
+echo "************************"
+brew install --cask \
+  1password \
+  alfred \
+  docker \
+  harvest \
+  iterm2 \
+  slack \
+  microsoft-teams \
+  obs \
+  recordit \
+  xbar \
+  zoom \
+  spotify \
+  tweetbot \
+  kaleidoscope \
+  firefox \
+  chrome \
+  moom
+
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code
+
+echo "************************"
+echo "*   Setup Dotfiles     *"
+echo "************************"
+if [ ! -d ~/dotfiles ]; then
+  git clone https://github.com/robtarr/dotfiles.git ~/dotfiles
+fi
+
+cd ~/dotfiles
+
+mkdir -p "~/Users/robtarr/Dropbox (Personal)/xbar/"
+ln -sf "$PWD/dotfiles" "~/Users/robtarr/Dropbox (Personal)/xbar/plugins"
+
+for link in .gitconfig .gitignore .gitmessage.txt .zshrc; do
+  if [ -L "$HOME/$link" ]; then
+    echo "Link '$link' exists"
+  else
+    ln -s "$PWD/$link" "$HOME/$link"
+  fi
+done
+
+echo "*****************"
+echo "*   Setup NVM   *"
+echo "*****************"
+NODE_VERSION=14 PROFILE=/dev/null sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+

@@ -1,0 +1,52 @@
+[user]
+  name = Rob Tarr
+  email = Rob@robtarr.net
+  signingkey = F9AB235C
+
+[commit]
+	gpgsign = true
+  template = /Users/robtarr/dotfiles/git/default-commit-message.txt
+
+[push]
+  default = simple
+  followTags = true
+
+[status]
+  showUntrackedFiles = all
+
+[github]
+  user = robtarr
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+
+[branch "master"]
+  mergeoptions = --ff-only
+[core]
+	editor = code --wait
+	hooksPath = /Users/robtarr/dotfiles/globalGitHooks
+	excludesfile = ~/.gitignore
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+[secrets]
+	providers = /Users/robtarr/projects/secrets/provider.js
+[pull]
+	rebase = true
+[init]
+	templateDir = /Users/robtarr/.git-template
+	defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

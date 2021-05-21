@@ -3,6 +3,11 @@ function git_current_branch() {
   echo "${ref#refs/heads/}"
 }
 
+# Shell into a running docker container with dsh <CONTAINER_ID>
+function dsh(){
+  docker exec -it "$@" /bin/bash
+}
+
 alias la="ls -Glha"
 alias hg="history -10000 -1 | grep --color=auto "
 alias h="history -10000 -1"
@@ -25,6 +30,12 @@ abbrev-alias gup='git fetch origin; git rebase origin/master'
 abbrev-alias ggpush='git push -u origin $(git_current_branch)'
 abbrev-alias undopush="git push -f origin HEAD^:master"
 abbrev-alias glog='git log --format='\''%Cgreen%h%Creset %C(cyan)%an%Creset - %s - %C(yellow)%ar'\'' --graph'
+abbrev-alias grb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
+
+abbrev-alias dc="docker-compose"
+abbrev-alias d="docker"
+abbrev-alias de="docker exec -it"
+abbrev-alias dr="docker run -it"
 
 alias removemerged='git branch --merged | egrep -v "(^\*|main|master|dev)" | xargs git branch -d'
 alias ohcrap='git add -A .; git commit --amend -C HEAD; git push -f'
