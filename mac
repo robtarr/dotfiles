@@ -48,7 +48,8 @@ brew install --cask \
   kaleidoscope \
   firefox \
   google-chrome \
-  moom
+  moom \
+  dropbox
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
