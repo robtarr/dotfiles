@@ -47,7 +47,7 @@ brew install --cask \
   tweetbot \
   kaleidoscope \
   firefox \
-  chrome \
+  google-chrome \
   moom
 
 brew tap homebrew/cask-fonts
