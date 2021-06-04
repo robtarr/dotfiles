@@ -1,10 +1,10 @@
 [user]
   name = Rob Tarr
   email = Rob@robtarr.net
-  signingkey = F9AB235C
+  signingkey = Rob Tarr <rob@robtarr.net>
 
 [commit]
-	gpgsign = true
+  gpgsign = true
   template = /Users/robtarr/dotfiles/git/default-commit-message.txt
 
 [push]
@@ -50,3 +50,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg2
