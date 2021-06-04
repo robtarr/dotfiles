@@ -8,6 +8,8 @@ function dsh(){
   docker exec -it "$@" /bin/bash
 }
 
+alias shack='sb ssh & ssh'
+
 alias la="ls -Glha"
 alias hg="history -10000 -1 | grep --color=auto "
 alias h="history -10000 -1"
