@@ -34,25 +34,44 @@ echo "************************"
 brew install --cask \
   1password \
   alfred \
-  docker \
+  dropbox \
   harvest \
-  iterm2 \
+  moom \
+  xbar \
+  rocket \
+  flotato \
+  keybase \
+  \
   slack \
   microsoft-teams \
+  zoom \
   obs \
   recordit \
-  xbar \
-  zoom \
-  spotify \
-  tweetbot \
-  kaleidoscope \
+  \
   firefox \
   google-chrome \
-  moom \
-  dropbox
+  \
+  iterm2 \
+  docker \
+  visual-studio-code \
+  sublime-text \
+  kaleidoscope \
+  gpg-suite-no-mail \
+  \
+  tweetbot \
+  spotify \
+  autodesk-fusion360 \
+  ultimaker-cura \
+  skitch \
+  dozer
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
+
+echo "*********************************"
+echo "*   Fox Harvest Time Format     *"
+echo "*********************************"
+defaults write ~/Library/Containers/com.getharvest.harvestxapp/Data/Library/Preferences/group.com.getharvest.Harvest.Documents.plist TimeFormat hours_minutes
 
 echo "************************"
 echo "*   Setup Dotfiles     *"
