@@ -1,7 +1,7 @@
 [user]
   name = Rob Tarr
   email = Rob@robtarr.net
-  signingkey = Rob Tarr <rob@robtarr.net>
+  signingkey = /Users/robtarr/.ssh/id_rsa.pub
 
 [commit]
   gpgsign = true
@@ -52,3 +52,4 @@
 	process = git-lfs filter-process
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
+	format = ssh

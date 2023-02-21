@@ -13,22 +13,24 @@ echo "**************************"
 
 brew install \
   caddy \
+  difftastic \
+  direnv \
+  gh \
   git \
   git-extras \
+  git-filter-repo \
   git-secrets \
-  gh \
+  go \
   imagemagick \
   jq \
-  shellcheck \
-  vim \
-  pure \
-  ngrok \
   mkcert \
+  ngrok \
   nss \
+  pure \
+  shellcheck \
+  sparkbox/brew/sb \
   tree \
-  go \
-  git-filter-repo \
-  direnv
+  vim
 
 echo "***************************"
 echo "*   Installing Heroku CLI *"
@@ -41,47 +43,53 @@ echo "************************"
 brew install --cask \
   1password \
   alfred \
-  dropbox \
-  harvest \
-  moom \
-  xbar \
-  rocket \
-  flotato \
-  keybase \
-  \
-  slack \
-  microsoft-teams \
-  zoom \
-  obs \
-  recordit \
-  \
-  firefox \
-  google-chrome \
-  browserstacklocal \
-  \
-  iterm2 \
-  docker \
-  visual-studio-code \
-  figma \
-  sublime-text \
-  kaleidoscope \
-  gpg-suite-no-mail \
-  \
-  tweetbot \
-  spotify \
   autodesk-fusion360 \
-  freecad \
-  ultimaker-cura \
-  skitch \
+  awscli \
+  browserstacklocal \
+  burp-suite \
+  charles \
+  docker \
   dozer \
+  dropbox \
+  figma \
+  firefox \
+  flotato \
+  freecad \
+  google-chrome \
+  google-drive \
+  gpg-suite-no-mail \
+  grandperspective \
+  harvest \
+  iterm2 \
+  kaleidoscope \
+  karabiner-elements \
+  keybase \
+  microsoft-teams \
+  moom \
+  obs \
   postman \
-  tableplus \
+  raspberry-pi-imager \
+  rocket \
+  skitch \
+  slack \
+  spotify \
+  sublime-text \
   superfly/tap/flyctl \
+  tableplus \
+  terraform \
+  tweetbot \
+  ultimaker-cura \
+  visual-studio-code \
   vlc \
-  karabiner-elements
+  ykman \
+  yubico-authenticator \
+  zoom
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
+
+brew tap homebrew/cask-drivers
+brew install --cask yubico-yubikey-manager
 
 echo "*********************************"
 echo "*   Fox Harvest Time Format     *"
@@ -130,3 +138,13 @@ echo "*   App Store Apps   *"
 echo "**********************"
 echo ""
 echo "https://apps.apple.com/us/app/trello/id1278508951?mt=12"
+
+echo "*******************************"
+echo "*   Removing the dock delay   *"
+echo "*******************************"
+echo ""
+defaults write com.apple.Dock autohide-delay -float 0
+killall Dock
+# To restore to default
+#   defaults delete com.apple.Dock autohide-delay
+#   killall Dock

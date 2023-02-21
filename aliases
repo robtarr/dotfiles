@@ -39,6 +39,8 @@ abbrev-alias d="docker"
 abbrev-alias de="docker exec -it"
 abbrev-alias dr="docker run -it"
 
+abbrev-alias security="curl -s https://raw.githubusercontent.com/sparkbox/standard/main/security/security_policy_compliance/policy-checks.sh | sh"
+
 alias removemerged='git branch --merged | egrep -v "(^\*|main|master|dev)" | xargs git branch -d'
 alias ohcrap='git add -A .; git commit --amend -C HEAD; git push -f'
 
