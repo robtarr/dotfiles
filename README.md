@@ -1,3 +1,8 @@
+## Get Started
+
+curl -o- https://raw.githubusercontent.com/robtarr/dotfiles/main/mac | bash
+
+
 ## Launchd
 
 Launchd is OS X's replacement for cron.

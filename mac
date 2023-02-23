@@ -6,6 +6,8 @@ echo "***********************"
 echo "*   Installing Brew   *"
 echo "***********************"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/robtarr/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "**************************"
 echo "*   Installing Formula   *"
@@ -43,23 +45,16 @@ echo "************************"
 brew install --cask \
   1password \
   alfred \
-  autodesk-fusion360 \
-  awscli \
-  browserstacklocal \
-  burp-suite \
   charles \
   docker \
-  dozer \
   dropbox \
   figma \
   firefox \
   flotato \
-  freecad \
   google-chrome \
   google-drive \
   gpg-suite-no-mail \
   grandperspective \
-  harvest \
   iterm2 \
   kaleidoscope \
   karabiner-elements \
@@ -70,20 +65,23 @@ brew install --cask \
   postman \
   raspberry-pi-imager \
   rocket \
-  skitch \
   slack \
   spotify \
-  sublime-text \
-  superfly/tap/flyctl \
   tableplus \
-  terraform \
-  tweetbot \
   ultimaker-cura \
   visual-studio-code \
   vlc \
-  ykman \
   yubico-authenticator \
   zoom
+
+echo "**************************************"
+echo "*   I couldn't install these Casks   *"
+echo "**************************************"
+echo autodesk-fusion360 \
+  awscli \
+  harvest \
+  terraform \
+  ykman
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
@@ -91,8 +89,14 @@ brew install --cask font-fira-code
 brew tap homebrew/cask-drivers
 brew install --cask yubico-yubikey-manager
 
+echo "************************"
+echo "*   Install Devbox     *"
+echo "************************"
+
+curl -fsSL https://get.jetpack.io/devbox | bash
+
 echo "*********************************"
-echo "*   Fox Harvest Time Format     *"
+echo "*   Fix Harvest Time Format     *"
 echo "*********************************"
 defaults write ~/Library/Containers/com.getharvest.harvestxapp/Data/Library/Preferences/group.com.getharvest.Harvest.Documents.plist TimeFormat hours_minutes
 
@@ -103,20 +107,19 @@ if [ ! -d ~/dotfiles ]; then
   git clone https://github.com/robtarr/dotfiles.git ~/dotfiles
 fi
 
-mkdir -p "~/Library/Application Support/xbar/"
-ln -sf "$PWD/dotfiles/xbar/plugins" "$HOME/Library/Application Support/xbar/plugins"
-
 for link in .gitconfig .gitignore .gitmessage.txt .zshrc; do
   if [ -L "$HOME/$link" ]; then
     echo "Link '$link' exists"
   else
-    ln -s "$PWD/$link" "$HOME/$link"
+    ln -s "$HOME/dotfiles/$link" "$HOME/$link"
   fi
 done
 
-# echo "*****************"
-# echo "*   Setup NVM   *"
-# echo "*****************"
+echo "*****************"
+echo "*   Setup NVM   *"
+echo "*****************"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
 # NODE_VERSION=14 PROFILE=/dev/null sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
 
 # export NVM_DIR="$HOME/.nvm"
