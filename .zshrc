@@ -1,8 +1,5 @@
 #http://stackoverflow.com/a/12575883/2344737
-autoload -Uz promptinit && promptinit
 autoload -Uz compinit && compinit
-
-prompt pure
 
 #https://wiki.archlinux.org/index.php/zsh#Prompts
 autoload -Uz colors && colors
@@ -12,17 +9,7 @@ source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-abbrev-alias/abbrev-alias.plugin.zsh
 source ~/dotfiles/aliases
 
-#http://zsh.sourceforge.net/Doc/Release/Options.html
-# HISTFILE=~/.zsh_history
-# HISTSIZE=10000
-# SAVEHIST=1000
-# setopt SHARE_HISTORY
-# setopt HIST_SAVE_NO_DUPS
-# setopt HIST_IGNORE_DUPS
-# setopt HIST_IGNORE_ALL_DUPS
-# setopt EXTENDED_HISTORY
-# setopt HIST_EXPIRE_DUPS_FIRST
-# setopt HIST_FIND_NO_DUPS
+wallpaper () { automator -i "${1}" ~/dotfiles/Applescripts/set-wallpaper.workflow }
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
@@ -33,8 +20,7 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(direnv hook zsh)"
 
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
+# Pure Prompt
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure

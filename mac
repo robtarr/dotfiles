@@ -1,26 +1,41 @@
 #!/bin/bash
 
-echo "Congrats on your new Mac! Let's get you setup, Rob"
+echo ""
+if [ ! brew -v &> /dev/null ]; then
+  echo "Congrats on your new Mac! Let's get you setup, Rob"
+else
+  echo "Let's get things updated!"
+fi
+echo ""
 
-echo "***********************"
-echo "*   Installing Brew   *"
-echo "***********************"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/robtarr/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+if [ ! brew -v &> /dev/null ]; then
+  echo "***********************"
+  echo "*   Installing Brew   *"
+  echo "***********************"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/robtarr/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  echo ""
+  exit
+fi
 
 echo "**************************"
 echo "*   Installing Formula   *"
 echo "**************************"
 
 brew install \
+  bat \
   caddy \
   difftastic \
   direnv \
+  duf \
+  exa \
   gh \
   git \
   git-extras \
   git-filter-repo \
+  git-lfs \
   git-secrets \
   go \
   imagemagick \
@@ -30,21 +45,20 @@ brew install \
   nss \
   pure \
   shellcheck \
-  sparkbox/brew/sb \
   tree \
   vim
+echo ""
 
-echo "***************************"
-echo "*   Installing Heroku CLI *"
-echo "**************************"
-brew tap heroku/brew && brew install heroku
+brew tap 1Password/homebrew-tap
 
 echo "************************"
 echo "*   Installing Casks   *"
 echo "************************"
 brew install --cask \
   1password \
+  1password/tap/1password-cli \
   alfred \
+  arduino \
   charles \
   docker \
   dropbox \
@@ -65,6 +79,8 @@ brew install --cask \
   postman \
   raspberry-pi-imager \
   rocket \
+  setapp \
+  skitch \
   slack \
   spotify \
   tableplus \
@@ -74,39 +90,38 @@ brew install --cask \
   yubico-authenticator \
   zoom
 
-echo "**************************************"
-echo "*   I couldn't install these Casks   *"
-echo "**************************************"
-echo autodesk-fusion360 \
-  awscli \
-  harvest \
-  terraform \
-  ykman
-
 brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
+brew install --cask \
+  font-fira-code \
+  font-fira-code-nerd-font
 
 brew tap homebrew/cask-drivers
 brew install --cask yubico-yubikey-manager
+echo ""
 
-echo "************************"
-echo "*   Install Devbox     *"
-echo "************************"
-
-curl -fsSL https://get.jetpack.io/devbox | bash
+echo "**************************************"
+echo "*   I couldn't install these Casks   *"
+echo "**************************************"
+echo autodesk-fusion360
+echo ""
 
 echo "*********************************"
 echo "*   Fix Harvest Time Format     *"
 echo "*********************************"
 defaults write ~/Library/Containers/com.getharvest.harvestxapp/Data/Library/Preferences/group.com.getharvest.Harvest.Documents.plist TimeFormat hours_minutes
+echo ""
 
-echo "************************"
-echo "*   Setup Dotfiles     *"
-echo "************************"
 if [ ! -d ~/dotfiles ]; then
+  echo "************************"
+  echo "*   Clone Dotfiles     *"
+  echo "************************"
   git clone https://github.com/robtarr/dotfiles.git ~/dotfiles
+  echo ""
 fi
 
+echo "**********************"
+echo "*   Setup symlinks   *"
+echo "**********************"
 for link in .gitconfig .gitignore .gitmessage.txt .zshrc; do
   if [ -L "$HOME/$link" ]; then
     echo "Link '$link' exists"
@@ -114,40 +129,80 @@ for link in .gitconfig .gitignore .gitmessage.txt .zshrc; do
     ln -s "$HOME/dotfiles/$link" "$HOME/$link"
   fi
 done
-
-echo "*****************"
-echo "*   Setup NVM   *"
-echo "*****************"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-
-# NODE_VERSION=14 PROFILE=/dev/null sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-echo "*************************"
-echo "*   Setup Nix & Lorri   *"
-echo "*************************"
-sh <(curl -L https://nixos.org/nix/install)
-nix-env -i lorri
-
-echo "**************************"
-echo "*   Setup Particle CLI   *"
-echo "**************************"
-bash <( curl -sL https://particle.io/install-cli )
-
-echo "**********************"
-echo "*   App Store Apps   *"
-echo "**********************"
 echo ""
-echo "https://apps.apple.com/us/app/trello/id1278508951?mt=12"
+
+if [ ! nvm -v &> /dev/null ]; then
+  echo "*****************"
+  echo "*   Setup NVM   *"
+  echo "*****************"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  echo ""
+  exit
+fi
+
+if [ ! particle -v &> /dev/null ]; then
+  echo "**************************"
+  echo "*   Setup Particle CLI   *"
+  echo "**************************"
+  bash <( curl -sL https://particle.io/install-cli )
+  echo ""
+fi
+
 
 echo "*******************************"
 echo "*   Removing the dock delay   *"
 echo "*******************************"
-echo ""
 defaults write com.apple.Dock autohide-delay -float 0
 killall Dock
+echo ""
 # To restore to default
 #   defaults delete com.apple.Dock autohide-delay
 #   killall Dock
+
+
+if [ -d "~/.ssh" ]; then
+  echo "*********************"
+  echo "*   Create ~/.ssh   *"
+  echo "*********************"
+  mkdir ~/.ssh
+  echo ""
+fi
+
+if [ -d "~/projects" ]; then
+  echo "*************************"
+  echo "*   Create ~/projects   *"
+  echo "*************************"
+  mkdir ~/projects
+  echo ""
+fi
+
+if [ -d "~/my-projects" ]; then
+  echo "****************************"
+  echo "*   Create ~/my-projects   *"
+  echo "****************************"
+  mkdir ~/my-projects
+  echo ""
+fi
+
+echo "****************************************"
+echo "*   Here are some other things to do   *"
+echo "****************************************"
+echo ""
+echo "Download these apps:"
+echo " • Trello https://apps.apple.com/us/app/trello/id1278508951?mt=12"
+echo " • Harvest https://apps.apple.com/us/app/harvest/id506189836?ls=1&mt=12"
+echo " • Yubikey Manager https://www.yubico.com/support/download/yubikey-manager"
+echo ""
+
+echo " • Remove Spotlight shortcut & Setup Alfred"
+echo " • Copy ssh keys"
+echo " • Copy /etc/hosts"
+echo " • Import iTerm profile from ~/dotfiles"
+echo " • Setup moom"
+echo " • Setup Karabiner"
+echo " • Login to mail accounts"
+echo " • Setup yubikey https://support.yubico.com/hc/en-us/articles/360016649059"
+echo " • Preferences > Security & Preferences > Use Watch to unlock"
+
+echo ""
+echo ""
